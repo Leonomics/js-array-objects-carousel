@@ -57,13 +57,16 @@ for(let i=0; i<slides.length; i++)	{
     slide.append(photo);
 
 	let content = document.createElement("div");
+	content.classList.add("slide__content");
     slide.append(content);
 	let title = document.createElement("h3");
 	title.innerText = src.title;
-	slide.append(title);
+	title.classList.add("slide__title");
+	content.append(title);
 	let description = document.createElement("p");
 	description.innerText = src.description;
-	slide.append(description);
+	description.classList.add("slide__description");
+	content.append(description);
 
 
 	//wrapperElement.innerHTML += slide;
@@ -101,6 +104,9 @@ slideElements[currentSlideIndex].classList.add('active');
 }, 3000)//},3000);
 
 
+
+
+
 //arrows
 const nextElement = document.querySelector('.arrow-next');
 const prevElement = document.querySelector('.arrow-prev');
@@ -118,15 +124,11 @@ nextElement.addEventListener('click', function(){
 	}else{
 		currentSlideIndex = 0;
 	}
-	//console.log('slide corrente', currentSlideIndex);
 	
-
-
-	//currentSlideIndex ++;
 	const nextSlide = slideElements[currentSlideIndex];
 	nextSlide.classList.add('active');
-	//console.log('prossima slide', currentSlideIndex, currentSlide);
 })
+
 prevElement.addEventListener('click', function(){
 	console.log('go prev');
 
